@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Microsoft YaHei', sans-serif;
+  background-color: #111;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 星星背景效果 */
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+}
+
+.invitation-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: rgba(15, 14, 15, 0.738);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  font-weight: bold;
+}
+
+.message {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.rejection-message {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  animation: pulse 1.5s infinite;
+}
+
+.tear-emoji {
+  display: inline-block;
+  animation: shake 0.5s infinite;
+  margin-left: 5px;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+}
+
+button {
+  padding: 15px 0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 48%;
+  text-align: center;
+}
+
+.accept-btn {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+.accept-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+}
+
+.reject-btn {
+  background-color: #ff6b6b;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+.reject-btn:hover {
+  background-color: #ff5252;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+}
+
+.rejected {
+  opacity: 0.9;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 最终弹窗样式 */
+.final-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.533);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.popup-content {
+  background-color: rgba(40, 40, 40, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.popup-content h2 {
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.popup-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.proof-btn, .final-accept-btn {
+  padding: 15px 0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.proof-btn {
+  background-color: #9d4dff;
+  color: white;
+  box-shadow: 0 0 15px rgba(157, 77, 255, 0.5);
+}
+
+.proof-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(157, 77, 255, 0.7);
+}
+
+.final-accept-btn {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+.final-accept-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+}
+
+/* 表单样式 */
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-content {
+  position: relative;
+  z-index: 1;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #FFD700;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.submit-btn, .back-btn {
+  padding: 15px 0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 48%;
+}
+
+.submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+}
+
+.back-btn {
+  background-color: #607D8B;
+  color: white;
+  box-shadow: 0 0 15px rgba(96, 125, 139, 0.5);
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(96, 125, 139, 0.7);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .invitation-card, .form-container {
+    width: 90%;
+    padding: 30px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button, .submit-btn, .back-btn {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+  
+  .popup-content {
+    width: 85%;
+    padding: 25px;
+  }
+}

@@ -1,0 +1,65 @@
+/* 烟花上升动画样式 */
+.firework {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  animation: riseUp 1.5s ease-out forwards;
+}
+
+@keyframes riseUp {
+  0% {
+    bottom: -10px;
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 70%;
+    opacity: 0;
+  }
+}
+
+/* 烟花轨迹样式 */
+.firework::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
+  transform: translateX(-50%);
+}
+
+/* 烟花颜色变化 */
+.firework.red {
+  background-color: #ff4d4d;
+  box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #ff4d4d;
+}
+
+.firework.blue {
+  background-color: #4d4dff;
+  box-shadow: 0 0 10px #4d4dff, 0 0 20px #4d4dff, 0 0 30px #4d4dff;
+}
+
+.firework.green {
+  background-color: #4dff4d;
+  box-shadow: 0 0 10px #4dff4d, 0 0 20px #4dff4d, 0 0 30px #4dff4d;
+}
+
+.firework.gold {
+  background-color: #ffd700;
+  box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+}
+
+.firework.purple {
+  background-color: #9d4dff;
+  box-shadow: 0 0 10px #9d4dff, 0 0 20px #9d4dff, 0 0 30px #9d4dff;
+}
