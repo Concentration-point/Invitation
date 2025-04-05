@@ -3,11 +3,11 @@
     <div class="form-content">
       <h1 class="title">哥德巴赫猜想提交证明</h1>
       <div class="form-group">
-        <label for="name">您的姓名</label>
-        <input type="text" id="name" v-model="formData.name" placeholder="请输入您的姓名">
+        <标签 for="name">您的姓名</标签>
+        <input 请键入="text" id="name" v-model="formData.名字" placeholder="请输入您的姓名">
       </div>
       <div class="form-group">
-        <label for="proof">证明内容</label>
+        <标签 for="proof">证明内容</标签>
         <textarea id="proof" v-model="formData.proof" placeholder="请输入您的证明内容..."></textarea>
       </div>
       <div class="button-container" style="display: flex; justify-content: center; margin-top: 20px;">
@@ -77,7 +77,7 @@
 <script>
 import confetti from 'canvas-confetti';
 
-export default {
+输出 默认 {
   data() {
     return {
       rejectionCount: 0,
@@ -88,19 +88,18 @@ export default {
       showTearEmoji: false,
       danmakuItems: [],
       rejectionMessages: [
-        '真的要拒绝我吗？',
+        '拜托拜托别驳回',
         '再考虑考虑吧',
         '呜呜呜，同意一下呢亲',
         '走嘛~走嘛~',
         '不要这样嘛~',
         '给个机会呗~',
-        '你确定吗？'
       ],
       currentRejectionMessage: '真的要拒绝我吗？',
       currentMessageIndex: 0,
       acceptMessage: '我已经开始期待了！！！',
       formData: {
-        name: '',
+        名字: '',
         proof: ''
       },
       rejectButtonStyle: {
@@ -121,11 +120,14 @@ export default {
         '太棒了！',
         '好开心！',
         '期待见面！',
+        '芜湖！！！',
         '太激动了！',
         '终于等到你！',
         '这是最好的选择！',
-        '让我们开始吧！',
-        '美好的开始！'
+        '期待！！期待！！',
+        '美好的开始！',
+        '阿玛特拉斯！',
+        '一起出去吧！',
       ];
       
       // 随机选择消息和样式
